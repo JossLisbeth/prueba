@@ -1,0 +1,230 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.detalle {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0px 0 0px;
+    text-align: center;
+    overflow: hidden;
+    font-size: 14px;
+    background-image: linear-gradient(180deg, #b9f27d 0, #a4ec79 16.67%, #8be373 33.33%, #6cd86c 50%, #47cd66 66.67%, #00c464 83.33%, #00bd65 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.leon {
+    --pelo-color: rgb(255, 238, 0);
+    --piel-color: rgba(189, 137, 25, 0.897);
+    --cola-color: rgba(189, 137, 25, 0.897);
+    --cuerpo-color: rgb(211, 185, 37);
+    --ojos-color: rgb(247, 247, 247);
+    --nariz-color: rgb(14, 14, 14);
+    position: relative;
+    top: -80px;
+}
+
+.cabeza {
+    width: 375px;
+    height: 375px;
+    position: relative;
+    z-index: 99;
+}
+
+.pelo {
+    width: 360px;
+    height: 360px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--pelo-color);
+    border-radius: 50%;
+}
+
+.cara {
+    background-color: var(--piel-color);
+    width: 180px;
+    height: 190px;
+    border-radius: 70%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.ojos {
+    width: 40px;
+    height: 35px;
+    background-color: black;
+    border-radius: 100%;
+    position: absolute;
+    top: 35%;
+    animation: 4s blinking infinite forwards;
+    overflow: hidden;
+}
+
+.ojos::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: var(--ojos-color);
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.ojos.left {
+    left: 12px;
+}
+
+.ojos.right {
+    right: 12px;
+}
+
+.nariz {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    width: 0px;
+    height: 10px;
+    border-width: 20px 30px;
+    border-style: solid;
+    border-color: var(--nariz-color) transparent transparent transparent;
+    margin-top: 40px;
+    z-index: 3;
+}
+
+.oido{
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 10px;
+    background-color: var(--piel-color);
+    z-index: 9;
+    border-radius: 40px;
+    clip-path: ellipse(100% 100% at -20% -10%);
+}
+.oido.left {
+    left: -52px;
+}
+
+.oido.right {
+    right: -52px;
+    transform: rotate(90deg);
+}
+
+#cuerpo {
+    width: 320px;
+    height: 200px;
+    position: absolute;
+    background-color: var(--cuerpo-color);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 280px;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.mano {
+    position: absolute;
+    height: 300px;
+    width: 22px;
+    animation-name: my-animation;
+    animation: 2.5s blinking infinite forwards;
+}
+
+.mano::before {
+    content: "";
+    width: 90px;
+    height: 70px;
+    background-color: var(--piel-color);
+    position: absolute;
+    top: 210px;
+    left: 40%;
+    transform: translateX(-50%);
+    border-radius: 100%;
+}
+
+.mano:nth-of-type(1) {
+    left: 75px;
+    top: -80px;
+}
+
+.mano:nth-of-type(2) {
+    right: 75px;
+    top: -80px;
+}
+
+.cola {
+    width: 320px;
+    height: 320px;
+    position: absolute;
+    top: -137px;
+    border-style: solid;
+    border-width: 30px;
+    border-radius: 40% 50%;
+    border-color: transparent var(--cola-color) transparent transparent;
+    -webkit-transform: rotate(125deg);
+    transform: rotate(125deg);
+    left: -180px;
+    animation: 1s wagging ease-in-out infinite alternate forwards;
+    transform-origin: 50% 100%;
+}
+
+.cola::before {
+    content: "";
+    width: 45px;
+    height: 49px;
+    background-color: var(--cola-color);
+    border-radius: 50% 1px;
+    position: absolute;
+    top: 204px;
+    left: 231px;
+}
+
+@keyframes blinking {
+    0%,
+    40%,
+    80% {
+      clip-path: ellipse(100% 100% at 50% 48%);
+    }
+    60%,
+    100% {
+      clip-path: ellipse(100% 2% at 50% 48%);
+    }
+  }
+  @keyframes wagging {
+    0% {
+      transform: rotate(125deg) translateX(0) translateY(0px);
+    }
+    100% {
+      transform: rotate(130deg) translateX(15px) translateY(-15px);
+    }
+  }
+  .sun {
+	width: 200px;
+	height: 200px;
+	background-color: #FFDE00;
+	border-radius: 50%;
+	box-shadow:
+		0 0 0 20px #FFDE0080,
+		0 0 0 40px #FFDE0040,
+		0 0 0 60px #FFDE0020,
+		0 0 0 80px #FFDE0010,
+		0 0 0 100px #FFDE0000,
+		0 0 40px 100px #FFDE0010;
+	animation:
+		sunrise 2s infinite linear forwards,
+		rays 2s 2s infinite linear;
+}
